@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClientWindow</class>
+ <widget class="QWidget" name="ClientWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>452</width>
+    <height>443</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="displayWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>421</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2" rowstretch="327,100" columnstretch="0" rowminimumheight="0,0">
+    <item row="0" column="0">
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>300</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QGridLayout" name="informationLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMinAndMaxSize</enum>
+      </property>
+      <item row="0" column="2">
+       <widget class="QLabel" name="labelValueAngle">
+        <property name="text">
+         <string>Угол камеры: 2 град.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelColorBackground">
+        <property name="text">
+         <string>Цвет фона:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="labelSightBackground">
+        <property name="text">
+         <string>Цвет прицела:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="labelValueXOffset">
+        <property name="text">
+         <string>Отступ по горизонтали:0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QComboBox" name="colorBackgroundChoose">
+        <item>
+         <property name="text">
+          <string>Чёрный</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Белый</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Серый</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="colorSightChoose">
+        <item>
+         <property name="text">
+          <string>Красный</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Чёрный</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="labelValueYOffset">
+        <property name="text">
+         <string>Отступ по вертикали: 0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
