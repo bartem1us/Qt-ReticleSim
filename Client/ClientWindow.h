@@ -24,7 +24,7 @@ public:
 
     void resizeEvent(QResizeEvent *event) override;
 private slots:
-    void onDataReceived(qreal angle, qreal xOffset, qreal yOffset);
+    void onDataReceived(const qreal angle,const qreal xOffset,const qreal yOffset);
     void onColorChanged();
     void onSightChanged();
 
@@ -48,7 +48,9 @@ private:
     QGraphicsItemGroup *lineGroup;
 
     qreal angle_ = 2;
+
     qreal xOffset_ = 0;
+
     qreal yOffset_ = 0;
 
     static constexpr qreal coefficient_ = 360.0/6000.0;

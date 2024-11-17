@@ -21,9 +21,9 @@ public:
     ~ServerWindow();
 private slots:
     void sendTelemetry();
-    void updateAngleLabel(int value);
-    void updateXOffsetLabel(int value);
-    void updateYOffsetLabel(int value);
+    void updateAngleLabel(const int value);
+    void updateXOffsetLabel(const int value);
+    void updateYOffsetLabel(const int value);
 
 private:
     Ui::ServerWindow *ui;

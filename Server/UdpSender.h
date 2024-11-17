@@ -14,15 +14,14 @@ public:
 
 public slots:
     void sendData(qreal angle, qreal xOffset, qreal yOffset);
-signals:
-    void dataSent();
+
 private:
 
     std::unique_ptr<QUdpSocket> udpSocket_;
 
-    const QHostAddress clientAddress_ = QHostAddress::LocalHost;
+    const QHostAddress clientAddress_;
 
-    const quint16 clientPort_ = 12345;  // Порт, на который отправляем данные
+    const quint16 clientPort_;  // Порт, на который отправляем данные
 };
 
 #endif // UDPSENDER_H

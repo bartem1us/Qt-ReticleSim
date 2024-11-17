@@ -11,17 +11,14 @@ ClientWindow::ClientWindow(QWidget *parent)
     ui->setupUi(this);
     udpReceiver_.get()->moveToThread(&udpThread_);
 
-    //connect(&udpThread_, &QThread::finished, udpReceiver_, &QObject::deleteLater);
     connect(udpReceiver_.get(), &UdpReceiver::dataReceived, this, &ClientWindow::onDataReceived);
-
-    udpThread_.start();
-
-    QMetaObject::invokeMethod(udpReceiver_.get(), [this]() {
+    connect(ui->colorBackgroundChoose, &QComboBox::currentIndexChanged, this, &ClientWindow::onColorChanged);
+    connect(ui->colorSightChoose, &QComboBox::currentIndexChanged, this, &ClientWindow::onSightChanged);
+    connect(&udpThread_, &QThread::started, udpReceiver_.get(), [this]() {
         udpReceiver_->startListening(QHostAddress::LocalHost, 12345);
     });
 
-    connect(ui->colorBackgroundChoose, &QComboBox::currentIndexChanged, this, &ClientWindow::onColorChanged);
-    connect(ui->colorSightChoose, &QComboBox::currentIndexChanged, this, &ClientWindow::onSightChanged);
+    udpThread_.start();
 
     targetAspectRatio_ = ui->displayWidget->height()/ui->displayWidget->width();
     width_ = ui->graphicsView->width();
@@ -128,7 +125,7 @@ void ClientWindow::onSightChanged()
     redReticle_->setSharedRenderer(new QSvgRenderer(filePath, this));
 }
 
-void ClientWindow::onDataReceived(qreal angle, qreal xOffset, qreal yOffset) {
+void ClientWindow::onDataReceived(const qreal angle,const qreal xOffset,const qreal yOffset) {
     angle_ = angle;
     xOffset_ = xOffset;
     yOffset_ = yOffset;
@@ -146,7 +143,7 @@ void ClientWindow::scaleReticleAndCrosshair() {
     qreal halfWidth = (redReticle_->boundingRect().width() / 2) * scaleFactor_ * coefficient_ * angle_;
     qreal halfHeight = (redReticle_->boundingRect().height() / 2) * scaleFactor_ * coefficient_ * angle_;
     redReticle_->setPos((ui->graphicsView->width() / 2.0) - halfWidth +(ui->graphicsView->width() / 2) * xOffset_,
-                       (ui->graphicsView->height() / 2.0) - halfHeight+(ui->graphicsView->width() / 2) * yOffset_);
+                       (ui->graphicsView->height() / 2.0) - halfHeight+(ui->graphicsView->height() / 2) * yOffset_);
     lineGroup->setPos((ui->graphicsView->width() / 2) - 200, (ui->graphicsView->height() / 2) - 150);
 
 }
