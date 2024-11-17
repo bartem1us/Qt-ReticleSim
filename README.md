@@ -1,3 +1,2 @@
 ## Демонстрация работы
-
-<video src="Working.mp4" controls width="800"></video>
+[Видео с демонстрацией ](Working.mp4)
